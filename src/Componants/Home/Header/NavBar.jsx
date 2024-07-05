@@ -17,14 +17,18 @@ const NavBar = () => {
                         navigate(`/`);
                     }}
                 >
-                    <img src={logoURL} style={{ width: 75 }} alt="image" />
+                    <img src={logoURL} style={{ width: 75 }} alt="Logo" />
                     <div style={{ display: 'flex' }}>
                         <p className="explorePluse">
                             Explore
                             <span className="plus"> Plus</span>
                         </p>
                         &nbsp;
-                        <img src={subURL} className="suburl" alt="image" />
+                        <img
+                            src={subURL}
+                            className="suburl"
+                            alt="Subscription Icon"
+                        />
                     </div>
                 </div>
                 <Search />

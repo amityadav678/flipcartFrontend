@@ -13,29 +13,33 @@ const ProductDetailsView = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        handleGetProducts();
-    }, [id]);
+        const handleGetProducts = async () => {
+            try {
+                const url = process.env.REACT_APP_BACKEND_URL;
+                const response = await fetch(`${url}/product/${id}`, {
+                    method: 'GET',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                });
 
-    const handleGetProducts = async () => {
-        var url = process.env.REACT_APP_BACKEND_URL;
-        try {
-            const response = await fetch(`${url}/product/${id}`, {
-                method: 'GET',
-                headers: {
-                    Accept: 'application/json',
-                    'Content-Type': 'application/json',
-                },
-            });
-
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const products = await response.json();
+                setProducts(products);
+            } catch (error) {
+                console.error(
+                    'There was a problem with the fetch request:',
+                    error
+                );
             }
-            const products = await response.json();
-            setProducts(products);
-        } catch (error) {
-            console.error('There was a problem with the fetch request:', error);
-        }
-    };
+        };
+
+        handleGetProducts(); // Call the function immediately after defining it
+    }, [id]); // Include 'id' in the dependency array
+
     return (
         <>
             {products.length !== 0 ? (

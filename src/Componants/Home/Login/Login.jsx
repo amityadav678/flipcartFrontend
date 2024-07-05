@@ -10,13 +10,6 @@ import { useForm } from 'react-hook-form';
 
 const Login = (props) => {
     const [loginSignUp, setLoginSignUp] = useState(true);
-    console.log('loginSignUp:', loginSignUp);
-
-    const formdata = {
-        mobileNumber: '',
-        password: '',
-        name: '',
-    };
 
     const handleLogin = async (prop) => {
         var url = process.env.REACT_APP_BACKEND_URL;
