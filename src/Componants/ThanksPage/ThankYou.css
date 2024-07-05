@@ -1,0 +1,38 @@
+.thank-you-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fin.fashionnetwork.com%2Fnews%2FFlipkart-launches-billboard-in-new-york-us-to-celebrate-sale%2C1523522.html&psig=AOvVaw1-6QWecWeP1u5eWfnF9lI_&ust=1720204838587000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCLjNwcWEjocDFQAAAAAdAAAAABAR');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.thank-you-content {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(
+        255,
+        255,
+        255,
+        0.8
+    ); /* Adding opacity to the background */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-width: 600px;
+}
+
+.thank-you-text {
+    margin-bottom: 10px;
+    color: #333; /* Adjust text color to contrast with background */
+}
+
+.thank-you-subtext {
+    margin-bottom: 20px;
+    color: #555; /* Adjust text color to contrast with background */
+}
+
+.home-button {
+    margin-top: 20px;
+}

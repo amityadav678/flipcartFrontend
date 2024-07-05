@@ -1,0 +1,27 @@
+.advantages {
+    margin-top: 20px;
+}
+
+.advantages ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.advantages li {
+    margin-bottom: 10px;
+    font-family: Roboto, Arial, sans-serif;
+}
+.warning {
+    font-size: 10px;
+}
+.container {
+    padding-bottom: 20px;
+}
+.advantagedata {
+    margin-left: 30px;
+}
+.secure {
+    font-size: 13px;
+    font-family: Roboto, Arial, sans-serif;
+    font-weight: 600px;
+}

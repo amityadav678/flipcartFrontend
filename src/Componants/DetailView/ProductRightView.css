@@ -1,0 +1,80 @@
+.product-detail-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.warranty-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.know-more {
+    color: #007bff;
+    cursor: pointer;
+}
+
+.delivery-section,
+.highlights-section,
+.payment-options-section,
+.seller-section,
+.description-section {
+    margin-bottom: 30px;
+}
+
+.delivery-pincode {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.delivery-pincode input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+}
+
+.delivery-pincode button {
+    padding: 8px 20px;
+    background-color: #007bff;
+    color: white;
+    border: 1px solid #007bff;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.delivery-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.view-details,
+.see-other-sellers {
+    color: #007bff;
+    cursor: pointer;
+}
+
+.highlight-text {
+    font-weight: bold;
+}
+
+.highlights-section ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.payment-options-section p {
+    margin: 5px 0;
+}
+
+.seller-section p {
+    margin: 5px 0;
+}
+
+.description-section p {
+    margin-bottom: 15px;
+}

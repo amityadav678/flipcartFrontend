@@ -1,0 +1,73 @@
+.customBox {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+.customBox Button {
+    color: #2874f0;
+    background-color: #ffffff;
+    height: 33px;
+    width: 100px;
+    margin-left: 20px;
+}
+
+.customBox > div {
+    display: flex;
+    align-items: center;
+}
+
+.customBox > div > p {
+    margin-left: 3px;
+}
+.customBox {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.loginContainer {
+    position: relative;
+}
+
+.popup {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    padding: 16px;
+    border-radius: 4px;
+    text-align: left;
+    width: 200px;
+}
+
+.popupHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.popupItem {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    cursor: pointer;
+    color: black;
+    font-size: 12px;
+}
+
+.popupItem p {
+    margin: 0 0 0 8px;
+}
+
+.popupItem:hover {
+    background-color: #f1f1f1;
+    border-radius: 4px;
+}
+
+.Cart p {
+    margin-top: 12px;
+}

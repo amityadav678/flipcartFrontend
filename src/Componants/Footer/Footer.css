@@ -1,0 +1,93 @@
+/* General footer styling */
+.flipkart-footer {
+    background-color: #172337; /* Dark blue background */
+    color: #ffffff; /* White text */
+    padding: 40px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-family: Arial, sans-serif; /* Change font style */
+    font-size: 14px;
+}
+
+/* Section styling */
+.footer-section {
+    flex: 1 1 180px;
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+.footer-section h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ffffff; /* White text for headers */
+    border-bottom: 2px solid #4a90e2; /* Adding a blue underline for headers */
+    padding-bottom: 5px;
+}
+
+/* List styling */
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+    cursor: pointer;
+    color: #b0b0b0; /* Lighter color for list items */
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li:hover {
+    color: #ffffff; /* White text on hover */
+}
+
+/* Address styling */
+.footer-section address {
+    font-style: normal;
+    color: #b0b0b0; /* Lighter color for address */
+    line-height: 1.6;
+}
+
+/* Social icons styling */
+.social-icons {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.social-icons li {
+    margin-right: 15px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.social-icons li:hover {
+    transform: scale(1.2); /* Scale up on hover */
+}
+
+/* Additional styling for copyright */
+.copyright {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 12px;
+    color: #b0b0b0; /* Lighter color for copyright */
+    border-top: 1px solid #4a90e2; /* Adding a blue top border */
+    padding-top: 10px;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .flipkart-footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+}

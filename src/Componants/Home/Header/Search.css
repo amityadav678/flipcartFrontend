@@ -1,0 +1,17 @@
+.inputSearch {
+  background-color: white;
+  width: 38%;
+  border-radius: 2px;
+  margin-left: 10px;
+  display: flex;
+}
+.inputBox {
+  border-radius: 4%;
+  width: 100%;
+  height: 33px;
+  padding-left: 20px;
+}
+.searchIcon {
+  color: blue;
+  margin-top: 5px;
+}

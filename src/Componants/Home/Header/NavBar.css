@@ -1,0 +1,25 @@
+.navBox {
+  background-color: #2874f0;
+  height: 55px;
+  width: 100%;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+.imageWithText {
+  margin-left: 12%;
+  line-height: 0;
+  font-size: 13px;
+  font-style: italic;
+}
+
+.explorePluse {
+  margin-top: 5px;
+}
+.plus {
+  color: #ffe500;
+}
+.suburl {
+  width: 10px;
+  height: 10px;
+}

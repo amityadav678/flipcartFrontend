@@ -1,0 +1,12 @@
+.deal {
+    margin-top: 10px;
+    background-color: ffffff;
+    font-size: 22px;
+    font-weight: 600;
+    margin-right: 25px;
+    line-height: 32px;
+}
+.productBox p {
+    padding: 0px;
+    margin: 0px;
+}

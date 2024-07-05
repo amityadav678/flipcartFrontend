@@ -1,0 +1,44 @@
+.contanerFirst {
+    height: 550px; /* Add 'px' unit to specify height */
+    background-image: url('https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/login_img_c4a81e.png');
+    background-position: center calc(100% - 40px); /* Positions the background image 10px up from the bottom */
+    background-repeat: no-repeat;
+    padding: 20px;
+}
+.inputData {
+    padding: 15px;
+}
+
+.inputData p {
+    color: 'black';
+}
+
+.buttonAliment {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 80px;
+}
+.buttonAliment p {
+    color: black;
+}
+.buttonAliment Button {
+    color: #fff;
+    height: 48px;
+    border-radius: 2px;
+}
+.loginButton {
+    background-color: #fff;
+    color: #2874f0;
+    box-shadow: 0 2px 4px 0 rgb (0 0 0/20%);
+}
+.inputData > p {
+    font-size: 12px;
+    color: #878787;
+    margin-top: 10px;
+}
+.buttonAliment p {
+    color: #2874f0;
+    font-weight: 600;
+    cursor: pointer;
+}

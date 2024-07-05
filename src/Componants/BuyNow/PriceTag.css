@@ -1,0 +1,36 @@
+.alignPriceItems {
+    display: flex;
+    justify-content: space-between;
+}
+.price-tag-container {
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+    font-family: 'Roboto', Arial, sans-serif;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 1px -1px;
+}
+
+.price-tag-heading {
+    color: #878787;
+    margin-bottom: 10px;
+}
+
+.price-tag-hr {
+    border-top: 1px dashed;
+}
+
+.alignPriceItems {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.alignPriceItems.total-amount {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.savings-text {
+    color: green;
+    margin-top: 10px;
+}
