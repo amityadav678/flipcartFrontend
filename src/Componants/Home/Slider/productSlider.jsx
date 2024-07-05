@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import { bannerData } from '../../../data';
 import './productSlider.css';
 import Countdown from 'react-countdown';
 import Button from '@mui/material/Button';
@@ -32,8 +31,6 @@ const ProductSlider = () => {
     }, []);
 
     const [products, setProducts] = useState([]);
-    const sbiimg =
-        'https://rukminim2.flixcart.com/fk-p-flap/1000/90/image/606a19936b528d9d.jpg?q=20';
 
     const handleGetProducts = async () => {
         var url = process.env.REACT_APP_BACKEND_URL;

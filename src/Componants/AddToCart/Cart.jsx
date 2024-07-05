@@ -1,5 +1,5 @@
 import CartDetail from './CartDetail';
-import PriceCalculation from './PriceCalculation';
+
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import React, { useContext, useEffect, useState } from 'react';

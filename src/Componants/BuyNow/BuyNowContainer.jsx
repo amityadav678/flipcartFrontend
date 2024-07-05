@@ -1,8 +1,6 @@
 import './BuyNowContainer.css';
 import React, { useContext, useState, useEffect } from 'react';
-import LoginSignup from './LoginSignup';
 import DeliveryAddress from './DeliveryAddress';
-import OrderSummary from './OrderSummary';
 import PaymentOption from './PaymentOption';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
@@ -19,7 +17,6 @@ import Login from '../Home/Login/Login';
 
 const BuyNowContainer = () => {
     const { productPropdata, setProductPropdata } = useContext(DataContext);
-    const [findLogin, setFindLogin] = useState(false);
     const [showBox, setShowBox] = useState(1);
     const [address, setAddress] = useState(null);
     const [loginModalShow, setLoginModalShow] = useState(false);
@@ -33,10 +30,8 @@ const BuyNowContainer = () => {
         const getLogin = localStorage.getItem('Login');
         if (getLogin == null) {
             setUserName(getLogin);
-            setFindLogin(true);
             setShowBox(2);
         } else {
-            setFindLogin(false);
             setShowBox(1);
         }
 

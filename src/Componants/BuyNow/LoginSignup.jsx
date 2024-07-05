@@ -44,8 +44,8 @@ const LoginSignup = () => {
                             color="textSecondary"
                         >
                             By continuing, you agree to Flipkart's{' '}
-                            <a href="#">Terms of Use</a> and{' '}
-                            <a href="#">Privacy Policy</a>.
+                            <span>Terms of Use</span> and{' '}
+                            <span>Privacy Policy</span>.
                         </Typography>
                     </div>
                     &nbsp;

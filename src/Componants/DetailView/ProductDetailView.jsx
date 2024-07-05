@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import ProductLSideView from './ProductLSideView';
 import ProductRightView from './ProductRightViews';
 import Col from 'react-bootstrap/Col';
@@ -13,7 +13,6 @@ const ProductDetailsView = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        // Call the function to fetch products
         handleGetProducts();
     }, [id]);
 
@@ -39,7 +38,7 @@ const ProductDetailsView = () => {
     };
     return (
         <>
-            {products.length != 0 ? (
+            {products.length !== 0 ? (
                 <>
                     <div style={{ marginTop: '30px', marginLeft: '150px' }}>
                         <Row>

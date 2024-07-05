@@ -10,13 +10,9 @@ const DeliveryAddress = ({ setShowBox }) => {
         register,
         handleSubmit,
         formState: { errors },
-        setValue,
-        reset,
-        trigger,
     } = useForm();
 
     const handleFormdata = (data) => {
-        console.log('data:', data);
         localStorage.removeItem('address');
         localStorage.setItem('address', data.city);
         setShowBox(3);

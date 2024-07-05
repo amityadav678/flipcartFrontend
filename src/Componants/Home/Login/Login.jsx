@@ -1,5 +1,4 @@
 import './Login.css';
-import Dialog from '@mui/material/Dialog';
 import Modal from 'react-bootstrap/Modal';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -10,21 +9,13 @@ import toast, { Toaster } from 'react-hot-toast';
 import { useForm } from 'react-hook-form';
 
 const Login = (props) => {
-    console.log('props:', props.onHide);
     const [loginSignUp, setLoginSignUp] = useState(true);
     console.log('loginSignUp:', loginSignUp);
-    const [userName, setUserName] = useState('');
 
     const formdata = {
         mobileNumber: '',
         password: '',
         name: '',
-    };
-
-    const [enterUserData, setEnterUserData] = useState(formdata);
-
-    const handleForm = (e) => {
-        setEnterUserData({ ...enterUserData, [e.target.name]: e.target.value });
     };
 
     const handleLogin = async (prop) => {
@@ -86,8 +77,6 @@ const Login = (props) => {
                 localStorage.removeItem('address');
                 localStorage.setItem('Login', true);
             }
-
-            const data = await response.json();
         } catch (error) {
             console.error(
                 'There was a problem with the sign-in request:',
@@ -100,9 +89,6 @@ const Login = (props) => {
         register,
         handleSubmit,
         formState: { errors },
-        setValue,
-        reset,
-        trigger,
     } = useForm();
 
     const handleFormdata = (data) => {

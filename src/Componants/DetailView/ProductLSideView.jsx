@@ -3,9 +3,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import BoltIcon from '@mui/icons-material/Bolt';
-import { FavoriteBorder, Favorite } from '@mui/icons-material'; // Import Material-UI icons
 import { useNavigate } from 'react-router-dom';
-import BuyNowContainer from '../BuyNow/BuyNowContainer';
 import { DataContext } from '../ContextApi/DataProvider';
 import { useContext } from 'react';
 const ProductLSideView = (props) => {
@@ -16,7 +14,7 @@ const ProductLSideView = (props) => {
     const handleAddCart = async () => {
         var url = process.env.REACT_APP_BACKEND_URL;
         try {
-            const response = await fetch(`${url}/cart`, {
+            await fetch(`${url}/cart`, {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
@@ -25,11 +23,6 @@ const ProductLSideView = (props) => {
                 body: JSON.stringify(data),
             });
             navigate(`/cart`);
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-                navigate(`/cart`);
-            }
-            const Productdata = await response.json();
         } catch (error) {
             navigate(`/cart`);
             console.error(

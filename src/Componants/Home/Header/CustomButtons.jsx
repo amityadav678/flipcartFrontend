@@ -6,7 +6,6 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import StarIcon from '@mui/icons-material/Star';
 import ListAltIcon from '@mui/icons-material/ListAlt';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import RedeemIcon from '@mui/icons-material/Redeem';
 import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import './CustomButtons.css';
