@@ -3,7 +3,7 @@ import PriceCalculation from './PriceCalculation';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import React, { useContext, useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import PriceTag from '../BuyNow/PriceTag';
 import LooksOneIcon from '@mui/icons-material/LooksOne';
 import Button from '@mui/material/Button';
@@ -15,16 +15,14 @@ import { CircularProgress } from '@mui/material';
 const Cart = () => {
     const { setProductPropdata } = useContext(DataContext);
     const [products, setProducts] = useState([]);
-    console.log('products:', products);
     const [priceCalculateProduct, setPriceCalculateProduct] = useState([]);
-
     const [showBox, setShowBox] = useState(1);
     const navigate = useNavigate();
 
     const [calculationPrice, setCalculationPrice] = useState({
         price: 0,
         discount: 0,
-        totalPrice: '',
+        totalPrice: 0,
     });
 
     const CalculatePriceWhenQuantityChange = (
@@ -73,7 +71,7 @@ const Cart = () => {
     };
 
     const handleGetProducts = async () => {
-        var url = process.env.REACT_APP_BACKEND_URL;
+        const url = process.env.REACT_APP_BACKEND_URL;
         try {
             const response = await fetch(`${url}/find-cart`, {
                 method: 'GET',
@@ -93,104 +91,87 @@ const Cart = () => {
             console.error('There was a problem with the fetch request:', error);
         }
     };
+
     return (
-        <>
-            <div style={{ backgroundColor: 'whitesmoke' }}>
-                {products.length == 0 ? (
-                    <>
-                        {' '}
-                        <div
-                            style={{
-                                display: 'flex',
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                minHeight: '100vh', // Ensures it covers the entire viewport height
-                            }}
-                        >
-                            <div>
-                                <CircularProgress size={30} />
+        <div style={{ backgroundColor: 'whitesmoke' }}>
+            {products.length === 0 ? (
+                <div
+                    style={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        minHeight: '100vh',
+                    }}
+                >
+                    <CircularProgress size={30} />
+                </div>
+            ) : (
+                <Row>
+                    <Col lg={8} md={8} sm={6} xs={12} className="col">
+                        <div className="content-container">
+                            <div
+                                id="header1"
+                                className={`HeaderBox ${
+                                    showBox === 1 ? 'active' : ''
+                                }`}
+                                onClick={() => handleShowBox(1)}
+                            >
+                                <LooksOneIcon id="1Icon" /> &nbsp; ORDER SUMMARY
+                            </div>
+                            {showBox === 1 && (
+                                <div
+                                    className="containerBox"
+                                    style={{ marginTop: '-20px' }}
+                                >
+                                    {products.map((data) => (
+                                        <CartDetail
+                                            key={data.id}
+                                            data={data}
+                                            setProducts={setProducts}
+                                            products={products}
+                                            CalculatePriceWhenQuantityChange={
+                                                CalculatePriceWhenQuantityChange
+                                            }
+                                        />
+                                    ))}
+                                </div>
+                            )}
+                            <div
+                                style={{
+                                    padding: '20px',
+                                    backgroundColor: 'white',
+                                    display: 'flex',
+                                    justifyContent: 'flex-end',
+                                }}
+                            >
+                                <Button
+                                    onClick={() => {
+                                        setProductPropdata(products);
+                                        navigate(`/place-order`);
+                                    }}
+                                    style={{
+                                        backgroundColor: '#fb641b',
+                                        width: '300px',
+                                        color: 'white',
+                                        height: '55px',
+                                        borderRadius: '2px',
+                                    }}
+                                >
+                                    <BoltIcon />
+                                    PLACE ORDER
+                                </Button>
                             </div>
                         </div>
-                    </>
-                ) : (
-                    <>
-                        {' '}
-                        <Row>
-                            <Col lg={8} md={8} sm={6} xs={12} className="col">
-                                <div className="content-container">
-                                    <div
-                                        id="header1"
-                                        className={`HeaderBox ${
-                                            showBox === 1 ? 'active' : ''
-                                        }`}
-                                        onClick={() => handleShowBox(1)}
-                                    >
-                                        <LooksOneIcon id="1Icon" /> &nbsp; ORDER
-                                        SUMMARY
-                                    </div>
-                                    {showBox === 1 && (
-                                        <div
-                                            className="containerBox"
-                                            style={{ marginTop: '-20px' }}
-                                        >
-                                            {products.map((data) => (
-                                                <>
-                                                    <CartDetail
-                                                        key={data.id}
-                                                        data={data}
-                                                        setProducts={
-                                                            setProducts
-                                                        }
-                                                        products={products}
-                                                        CalculatePriceWhenQuantityChange={
-                                                            CalculatePriceWhenQuantityChange
-                                                        }
-                                                    />
-                                                </>
-                                            ))}
-                                        </div>
-                                    )}
-
-                                    <div
-                                        style={{
-                                            padding: '20px',
-                                            backgroundColor: 'white',
-                                            display: 'flex',
-                                            justifyContent: 'flex-end',
-                                        }}
-                                    >
-                                        <Button
-                                            onClick={() => {
-                                                setProductPropdata(products);
-                                                navigate(`/place-order`);
-                                            }}
-                                            style={{
-                                                backgroundColor: '#fb641b',
-                                                width: '300px',
-                                                color: 'white',
-                                                height: '55px',
-                                                borderRadius: '2px',
-                                            }}
-                                        >
-                                            <BoltIcon />
-                                            PLACE ORDER
-                                        </Button>
-                                    </div>
-                                </div>
-                            </Col>
-                            <Col lg={4} md={4} sm={6} xs={12}>
-                                <div className="price-container">
-                                    <PriceTag
-                                        calculationPrice={calculationPrice}
-                                    />
-                                </div>
-                            </Col>
-                        </Row>
-                        <Footerpage />
-                    </>
-                )}
-            </div>
-        </>
+                    </Col>
+                    <Col lg={4} md={4} sm={6} xs={12}>
+                        <div className="price-container">
+                            <PriceTag calculationPrice={calculationPrice} />
+                        </div>
+                    </Col>
+                </Row>
+            )}
+            <Footerpage />
+        </div>
     );
 };
 

@@ -14,9 +14,8 @@ import AddIcon from '@mui/icons-material/Add';
 import PriceTag from './PriceTag';
 import CartDetail from '../AddToCart/CartDetail';
 import { DataContext } from '../ContextApi/DataProvider';
-import { CircularProgress } from '@mui/material';
+import { CircularProgress, Button } from '@mui/material';
 import Login from '../Home/Login/Login';
-import { Button } from '@mui/material';
 
 const BuyNowContainer = () => {
     const { productPropdata, setProductPropdata } = useContext(DataContext);
@@ -25,14 +24,13 @@ const BuyNowContainer = () => {
     const [address, setAddress] = useState(null);
     const [loginModalShow, setLoginModalShow] = useState(false);
     const [userName, setUserName] = useState(null);
+
     const handleShowBox = (id) => {
         setShowBox(id);
     };
 
-    useEffect(() => {}, []);
-
     useEffect(() => {
-        var getLogin = localStorage.getItem('Login');
+        const getLogin = localStorage.getItem('Login');
         if (getLogin == null) {
             setUserName(getLogin);
             setFindLogin(true);
@@ -42,9 +40,9 @@ const BuyNowContainer = () => {
             setShowBox(1);
         }
 
-        let address = localStorage.getItem('address');
-        console.log('address:', address);
-        setAddress(address);
+        const storedAddress = localStorage.getItem('address');
+        console.log('address:', storedAddress);
+        setAddress(storedAddress);
         setShowBox(1);
     }, []);
 
@@ -99,187 +97,151 @@ const BuyNowContainer = () => {
                 setUserName={setUserName}
             />
             <div style={{ backgroundColor: 'whitesmoke' }}>
-                {productPropdata.length == 0 ? (
-                    <>
-                        {' '}
-                        <div
-                            style={{
-                                display: 'flex',
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                minHeight: '100vh', // Ensures it covers the entire viewport height
-                            }}
-                        >
-                            <div>
-                                <CircularProgress size={30} />
-                            </div>
+                {productPropdata.length === 0 ? (
+                    <div
+                        style={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            minHeight: '100vh', // Ensures it covers the entire viewport height
+                        }}
+                    >
+                        <div>
+                            <CircularProgress size={30} />
                         </div>
-                    </>
+                    </div>
                 ) : (
-                    <>
-                        {' '}
-                        <Row className="prj_rowone">
-                            <Col lg={8} md={8} xs={12} className="col">
-                                <div className="content-container">
+                    <Row className="prj_rowone">
+                        <Col lg={8} md={8} xs={12} className="col">
+                            <div className="content-container">
+                                <div
+                                    onClick={() => {
+                                        if (!userName) {
+                                            setLoginModalShow(true);
+                                        }
+                                    }}
+                                >
                                     <div
-                                        onClick={() => {
-                                            {
-                                                userName ? (
-                                                    <>{}</>
-                                                ) : (
-                                                    <>
-                                                        {setLoginModalShow(
-                                                            true
-                                                        )}
-                                                    </>
-                                                );
-                                            }
-                                        }}
-                                    >
-                                        <div
-                                            id="header1"
-                                            style={{ display: 'flex' }}
-                                            className={`HeaderBox ${
-                                                showBox === 1 ? 'active' : ''
-                                            }`}
-                                        >
-                                            <div>
-                                                {' '}
-                                                <LooksOneIcon id="1Icon" />{' '}
-                                                &nbsp; LOGIN OR SIGNUP
-                                            </div>
-                                            {userName ? (
-                                                <>
-                                                    {' '}
-                                                    <div>
-                                                        <Button
-                                                            variant="text"
-                                                            style={{
-                                                                color: 'black',
-                                                            }}
-                                                        >
-                                                            {userName}
-                                                        </Button>
-                                                    </div>
-                                                </>
-                                            ) : (
-                                                <>
-                                                    {' '}
-                                                    <div>
-                                                        <Button
-                                                            variant="text"
-                                                            style={{
-                                                                color: 'black',
-                                                            }}
-                                                        >
-                                                            You Should Login
-                                                            First
-                                                        </Button>
-                                                    </div>
-                                                </>
-                                            )}
-                                        </div>
-                                    </div>
-
-                                    <div
+                                        id="header1"
                                         style={{ display: 'flex' }}
-                                        id="header2"
-                                        className={`HeaderBox centerBox ${
-                                            showBox === 2 ? 'active' : ''
+                                        className={`HeaderBox ${
+                                            showBox === 1 ? 'active' : ''
                                         }`}
-                                        onClick={() => handleShowBox(2)}
                                     >
                                         <div>
-                                            <LooksTwoIcon id="2Icon" />
-                                            &nbsp; DELIVERY ADDRESS
+                                            <LooksOneIcon id="1Icon" /> &nbsp;
+                                            LOGIN OR SIGNUP
                                         </div>
-                                        <div style={{ paddingRight: '20px' }}>
-                                            &nbsp;
-                                            {address == null ? (
-                                                <>
-                                                    <AddIcon
-                                                        style={{
-                                                            color: 'blue',
-                                                        }}
-                                                    />
-                                                    <>Add a new address</>
-                                                </>
-                                            ) : (
-                                                <>{address}</>
-                                            )}
-                                        </div>
+                                        {userName ? (
+                                            <div>
+                                                <Button
+                                                    variant="text"
+                                                    style={{ color: 'black' }}
+                                                >
+                                                    {userName}
+                                                </Button>
+                                            </div>
+                                        ) : (
+                                            <div>
+                                                <Button
+                                                    variant="text"
+                                                    style={{ color: 'black' }}
+                                                >
+                                                    You Should Login First
+                                                </Button>
+                                            </div>
+                                        )}
                                     </div>
-                                    {showBox === 2 && (
-                                        <div className="containerBox">
-                                            <DeliveryAddress
-                                                setShowBox={setShowBox}
+                                </div>
+
+                                <div
+                                    style={{ display: 'flex' }}
+                                    id="header2"
+                                    className={`HeaderBox centerBox ${
+                                        showBox === 2 ? 'active' : ''
+                                    }`}
+                                    onClick={() => handleShowBox(2)}
+                                >
+                                    <div>
+                                        <LooksTwoIcon id="2Icon" />
+                                        &nbsp; DELIVERY ADDRESS
+                                    </div>
+                                    <div style={{ paddingRight: '20px' }}>
+                                        &nbsp;
+                                        {address == null ? (
+                                            <>
+                                                <AddIcon
+                                                    style={{ color: 'blue' }}
+                                                />
+                                                Add a new address
+                                            </>
+                                        ) : (
+                                            <>{address}</>
+                                        )}
+                                    </div>
+                                </div>
+                                {showBox === 2 && (
+                                    <div className="containerBox">
+                                        <DeliveryAddress
+                                            setShowBox={setShowBox}
+                                        />
+                                    </div>
+                                )}
+
+                                <div
+                                    id="header3"
+                                    className={`HeaderBox ${
+                                        showBox === 3 ? 'active' : ''
+                                    }`}
+                                    onClick={() => handleShowBox(3)}
+                                >
+                                    <span>
+                                        <Looks3Icon id="3Icon" />
+                                    </span>
+                                    &nbsp; ORDER SUMMARY
+                                </div>
+                                {showBox === 3 && (
+                                    <div
+                                        className="containerBox"
+                                        style={{ marginTop: '-20px' }}
+                                    >
+                                        {productPropdata.map((data) => (
+                                            <CartDetail
+                                                key={data.id}
+                                                data={data}
+                                                setProducts={setProductPropdata}
+                                                products={productPropdata}
+                                                CalculatePriceWhenQuantityChange={
+                                                    CalculatePriceWhenQuantityChange
+                                                }
                                             />
-                                        </div>
-                                    )}
-
-                                    <div
-                                        id="header3"
-                                        className={`HeaderBox ${
-                                            showBox === 3 ? 'active' : ''
-                                        }`}
-                                        onClick={() => handleShowBox(3)}
-                                    >
-                                        <span>
-                                            <Looks3Icon id="3Icon" />
-                                        </span>
-                                        &nbsp; ORDER SUMMARY
+                                        ))}
                                     </div>
-                                    {showBox === 3 && (
-                                        <div
-                                            className="containerBox"
-                                            style={{ marginTop: '-20px' }}
-                                        >
-                                            {productPropdata.map((data) => (
-                                                <>
-                                                    <CartDetail
-                                                        key={data.id}
-                                                        data={data}
-                                                        setProducts={
-                                                            setProductPropdata
-                                                        }
-                                                        products={
-                                                            productPropdata
-                                                        }
-                                                        CalculatePriceWhenQuantityChange={
-                                                            CalculatePriceWhenQuantityChange
-                                                        }
-                                                    />
-                                                </>
-                                            ))}
-                                        </div>
-                                    )}
+                                )}
 
-                                    <div
-                                        id="header4"
-                                        className={`HeaderBox ${
-                                            showBox === 4 ? 'active' : ''
-                                        }`}
-                                        onClick={() => handleShowBox(4)}
-                                    >
-                                        <Looks4Icon id="4Icon" />
-                                        &nbsp; PAYMENT OPTIONS
+                                <div
+                                    id="header4"
+                                    className={`HeaderBox ${
+                                        showBox === 4 ? 'active' : ''
+                                    }`}
+                                    onClick={() => handleShowBox(4)}
+                                >
+                                    <Looks4Icon id="4Icon" />
+                                    &nbsp; PAYMENT OPTIONS
+                                </div>
+                                {showBox === 4 && (
+                                    <div className="containerBox">
+                                        <PaymentOption />
                                     </div>
-                                    {showBox === 4 && (
-                                        <div className="containerBox">
-                                            <PaymentOption />
-                                        </div>
-                                    )}
-                                </div>
-                            </Col>
-                            <Col lg={4} md={4} xs={12} className="col">
-                                <div className="price-container">
-                                    <PriceTag
-                                        calculationPrice={calculationPrice}
-                                    />
-                                </div>
-                            </Col>
-                        </Row>
-                    </>
+                                )}
+                            </div>
+                        </Col>
+                        <Col lg={4} md={4} xs={12} className="col">
+                            <div className="price-container">
+                                <PriceTag calculationPrice={calculationPrice} />
+                            </div>
+                        </Col>
+                    </Row>
                 )}
             </div>
         </>
